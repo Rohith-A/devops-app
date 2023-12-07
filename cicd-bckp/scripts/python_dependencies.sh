@@ -2,4 +2,4 @@
 
 virtualenv /home/ubuntu/env
 source /home/ubuntu/env/bin/activate
-pip install -r /home/ubuntu/devops-app/requirements.txt
+pip install -r /home/ubuntu/django-movieApp/requirements.txt
