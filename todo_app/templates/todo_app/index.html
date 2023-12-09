@@ -1,0 +1,71 @@
+<!-- todo_list/todo_app/templates/todo_app/index.html -->
+
+{% extends "base.html" %}
+{% block content %}
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    {% comment %} tr:nth-child(even) {
+      background-color: #dddddd;
+    } {% endcomment %}
+    </style>
+<!--index.html-->
+{% if user.is_authenticated %}
+{% if object_list %}
+<h3>All my lists</h3>
+{% endif %}
+{% comment %} <ul>
+    {% for todolist in object_list %}
+    <li>
+        <div
+            role="button"
+            onclick="location.href='{% url "list" todolist.id %}'">
+            {{ todolist.title }}
+        </div>
+    </li>
+    {% empty %}
+    <h4>You have no lists!</h4>
+    {% endfor %}
+</ul> {% endcomment %}
+<p >
+    <table style="margin-bottom: 10%">
+        <tr>
+          <th>Task</th>
+        
+        </tr>
+        {% for todolist in object_list %}
+        <tr>
+          <td role="button"
+          onclick="location.href='{% url "list" todolist.id %}'">{{ todolist.title }}</td>
+      
+        </tr>
+        {% empty %}
+        <h4 style"margin-left: 30%">You have no lists!</h4>
+        {% endfor %}
+      </table>
+    <input
+        value="Add a new list"
+        type="button"
+        style="
+    background-color: #257da9;
+    border: 1px solid #257da9;
+    padding: 7px;
+    font-size: 15px;
+"
+        onclick="location.href='{% url "list-add" %}'"/>
+</p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock %}

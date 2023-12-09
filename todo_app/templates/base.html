@@ -1,0 +1,33 @@
+<!-- todo_list/todo_app/templates/base.html -->
+<!-- Base template -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    {% comment %} <meta name="viewport" content="width=device-width, initial-scale=1"> {% endcomment %}
+    <!--Simple.css-->
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <title>ToDo !</title>
+</head>
+
+<body>
+    <div style="
+    background: #247da9;
+    color: white;
+    width: 100%;
+    text-align: center;
+">
+        <h4 onclick="location.href='{% url "index" %}'">
+           ToDo !
+        </h4>
+    </div>
+    <div>
+        {% block content %}
+        This content will be replaced by different html code for each page.
+        {% endblock %}
+    </div>
+</body>
+
+</html>
