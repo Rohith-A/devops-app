@@ -2,6 +2,7 @@
 
 sed -i 's/\[]/\["54.144.250.113"]/' /home/ubuntu/devops-app/blog/settings.py
 
+sudo chmod -R u+w db.sqlite3
 python manage.py migrate 
 python manage.py makemigrations     
 python manage.py collectstatic
