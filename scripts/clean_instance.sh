@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 #
-rm -rf /home/ubuntu/devops-app/*
+sudo rm -rf /home/ubuntu/devops-app/*
