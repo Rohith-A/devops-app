@@ -1,8 +1,8 @@
 #!/usr/bin/bash 
 
-sed -i 's/\[]/\["54.144.250.113"]/' /home/ubuntu/devops-app/blog/settings.py
+sed -i 's/\[]/\["16.171.234.24"]/' /home/ubuntu/devops-app/todo_project/settings.py
 
-# sudo chmod -R u+w db.sqlite3
+sudo chmod -r 777 /
 
 python manage.py migrate 
 python manage.py makemigrations     
