@@ -18,15 +18,11 @@ phases:
       - ls -ltr
   build:
     commands:
-      - cd /todo_project
       - ls -ltr
+      - cd todo_project   
       - pylint *.py
-      - cd ../
-      - cd /todo_app
-      - pylint *.py
+
       - echo Building the application
-      - pwd
-      - ls -ltr
   post_build:
     commands:
       - echo Build completed on `date`

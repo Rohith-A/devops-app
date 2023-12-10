@@ -28,15 +28,18 @@
         <h4 onclick="location.href='{% url "index" %}'">
            ToDo !
         </h4>
+        {% if user.is_authenticated %}
         <a href="/" onclick="location.href='{% url "index" %}'" 
         style="/* background: #40679a; */color: white;border: none;padding: 6px;text-decoration: none;width: fit-content;font-size: 15px;position: absolute;left: 10px;top: 27px;">
         <svg style="color: white;width: 25px;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M512 128 128 447.936V896h255.936V640H640v256h255.936V447.936z"></path></svg>
     </a>
         
         <h5
-        style="/* background: #40679a; */color: white;border: none;padding: 6px;text-decoration: none;width: fit-content;font-size: 15px;position: absolute;/* left: 10px; */right: 20px;top: 0px;"
+        style="/* background: #40679a; */color: white;border: none;padding: 6px;text-decoration: none;width: fit-content;font-size: 15px;position: absolute;/* left: 10px; */right: 100px;top: 0px;"
         >{{ user.username }}!<h5>
-     
+            <a href="{% url 'logout' %}"  style="/* background: #40679a; */color: white;border: none;padding: 6px;text-decoration: none;width: fit-content;font-size: 15px;position: absolute;/* left: 10px; */right: 20px;top: 25px;">Log Out</a>
+
+            {% endif %}
     </div>
     {% if user.is_authenticated %}
     <div style="
@@ -47,8 +50,6 @@
     box-shadow: #e7e7e7 2px 5px 5px 5px;
 ">
 <a href="/" style="border: none;padding: 6px;text-decoration: none;width: fit-content;font-size: 15px;">Home</a>
-<a href="{% url 'logout' %}">Log Out</a>
-
         {% block content %}
         This content will be replaced by different html code for each page.
         {% endblock %}

@@ -14,17 +14,21 @@
 </head>
 <div style="
     padding: 15px;
-    margin-left: 10%;
+    margin-left: 0%;
     margin-top: 20%;
     height: 50vh;
     border: 1px solid #e7e7e7;
     box-shadow: #e7e7e7 2px 5px 5px 5px;
 ">
-<h2>Log In</h2>
-<form method="post">
+<h2 style="margin-left: 15%">Log In</h2>
+<form method="post" style="
+padding: 15px;
+margin-left: 10%;
+width: 100%
+" >
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Log In</button>
+  <button type="submit" style="margin-right: 10px">Log In</button>
   <a href="{% url 'signup' %}">Sign up</a>
 </form>
 </div>

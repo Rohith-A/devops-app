@@ -44,8 +44,13 @@
       text-align: center
     }
     </style>
-<h3>{{ title }}</h3>
-<form method="post" pattern="[A-Za-z]{3}">
+<h3 style="
+margin-left: 5%;
+">{{ title }}</h3>
+<form method="post" pattern="[A-Za-z]{3}"  style="
+margin-left: 5%;
+margin-bottom: 5%
+">
     {% csrf_token %}
     <table>
         {{ form.as_table }}
