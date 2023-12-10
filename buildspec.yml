@@ -15,11 +15,11 @@ phases:
   pre_build:
     commands:
       - pip3 install -r requirements.txt
-      - ls -ltr
+      - ls
   build:
     commands:
       - ls -ltr
-      - sudo cd todo_project   
+      - cd todo_project/
       - pylint *.py
       - echo Building the application
   post_build:
