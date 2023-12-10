@@ -18,10 +18,11 @@ phases:
       - ls -ltr
   build:
     commands:
-      - cd todo_app
+      - cd todo_project
+      - ls -ltr
       - pylint *.py
       - cd ../
-      - cd todo_project
+      - cd todo_app
       - pylint *.py
       - echo Building the application
       - pwd
