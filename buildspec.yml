@@ -16,10 +16,10 @@ phases:
     commands:
       - pip3 install -r requirements.txt
       - echo Prebuild ops
-      - cd todo_app
+      - cd /todo_app
       - pylint *
       - cd ..
-      - cd todo_project
+      - cd /todo_project
       - pylint *
   build:
     commands:
