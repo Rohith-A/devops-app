@@ -1,10 +1,25 @@
 <!-- templates/registration/login.html -->
-{% extends "base.html" %}
+{% comment %} {% extends "base.html" %} {% endcomment %}
 
-{% block title %}Login{% endblock %}
+{% comment %} {% block title %}Login{% endblock %} {% endcomment %}
 
 {% block content %}
-<div style="margin-left: 30%">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  {% comment %} <meta name="viewport" content="width=device-width, initial-scale=1"> {% endcomment %}
+  <!--Simple.css-->
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <title>ToDo !</title>
+</head>
+<div style="
+    padding: 15px;
+    margin-left: 10%;
+    margin-top: 20%;
+    height: 50vh;
+    border: 1px solid #e7e7e7;
+    box-shadow: #e7e7e7 2px 5px 5px 5px;
+">
 <h2>Log In</h2>
 <form method="post">
   {% csrf_token %}

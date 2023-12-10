@@ -19,6 +19,11 @@ phases:
   build:
     commands:
       - echo Building the application 
+      - cd todo_app
+      - pylint *
+      - cd ..
+      - cd todo_project
+      - pylint *
   post_build:
     commands:
       - echo Build completed on `date`

@@ -7,22 +7,33 @@
       font-family: arial, sans-serif;
       border-collapse: collapse;
       width: 100%;
+      text-align: center;
+
     }
     
-    td, th {
+    td {
       border: 1px solid #dddddd;
       text-align: left;
       padding: 8px;
     }
+
+    th {
+      background-color: #257da9;
+      font-weight: 700;
+      color: white;
+  }
     
-    {% comment %} tr:nth-child(even) {
-      background-color: #dddddd;
-    } {% endcomment %}
+  tr:nth-child(even) {
+      background-color: none;
+    }
+    h4 {
+      text-align: center
+    }
     </style>
 <!--index.html-->
 {% if user.is_authenticated %}
 {% if object_list %}
-<h3>All my lists</h3>
+<h4>ToDo Tasks</h4>
 {% endif %}
 {% comment %} <ul>
     {% for todolist in object_list %}
@@ -38,21 +49,27 @@
     {% endfor %}
 </ul> {% endcomment %}
 <p >
-    <table style="margin-bottom: 10%">
+  <div style="height: 500px; overflow: scroll; margin-bottom: 10%">
+
+    <table>
         <tr>
           <th>Task</th>
+          <th>Description</th>
         
         </tr>
         {% for todolist in object_list %}
         <tr>
           <td role="button"
           onclick="location.href='{% url "list" todolist.id %}'">{{ todolist.title }}</td>
+          <td role="button"
+          onclick="location.href='{% url "list" todolist.id %}'">{{ todolist.description }}</td>
       
         </tr>
         {% empty %}
         <h4 style"margin-left: 30%">You have no lists!</h4>
         {% endfor %}
       </table>
+    </div>
     <input
         value="Add a new list"
         type="button"

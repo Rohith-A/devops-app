@@ -2,13 +2,25 @@
 {% extends "base.html" %}
 
 {% block content %}
+<script type="text/JavaScript">
 
+    function validateForm()
+    {
+        const inputField = document.getElementById('toDoListForm');
+        inputField.children[1].children[1].value
+        inputField.children[2].children[1].value
+        debugger
+        console.log(inputField)
+        // Validate URL
+      return false;
+    }
+    </script>
 <h3 style="
 margin-left: 30%
 ">{{ title }}</h3>
 <div>
     <div>
-        <form method="post" style="
+        <form method="post" id="toDoListForm" onsubmit="validateForm();" on pattern="[A-Za-z]{3}" style="
         margin-left: 30%
     ">
             {% csrf_token %}
@@ -35,5 +47,4 @@ margin-left: 30%
         </form>
     </div>
 </div>
-
 {% endblock %}

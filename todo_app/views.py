@@ -8,6 +8,7 @@ from django.views.generic import (
     DeleteView
 )
 from .models import ToDoItem, ToDoList
+from django.core.exceptions import ValidationError
 
 class ListListView(ListView):
     model = ToDoList
@@ -26,9 +27,17 @@ class ItemListView(ListView):
         return context
 
 class ListCreate(CreateView):
+    regex=r'^[A-Z]',
     model = ToDoList
-    fields = ["title"]
-
+    fields = ["title", "description"]
+    
+    # def clean(self):
+    #     super(MyForm, self).clean()
+    #     if not regex.match(self['title'].value()):
+    #         raise ValidationError(
+    #         _('Entered path %(value)s is incorrect.'),
+    #         params={'value': value},
+    #           )
     def get_context_data(self):
         context = super(ListCreate, self).get_context_data()
         context["title"] = "Add a new list"
@@ -53,7 +62,7 @@ class ItemCreate(CreateView):
         context = super(ItemCreate, self).get_context_data()
         todo_list = ToDoList.objects.get(id=self.kwargs["list_id"])
         context["todo_list"] = todo_list
-        context["title"] = "Create a new item"
+        context["title", "description"] = "Create a new item"
         return context
 
     def get_success_url(self):
