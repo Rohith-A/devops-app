@@ -1,13 +1,13 @@
 
 #!/usr/bin/bash
 
-sudo systemctl daemon-reload
-sudo rm -f /etc/nginx/sites-enabled/default
+ systemctl daemon-reload
+ rm -f /etc/nginx/sites-enabled/default
 
-sudo cp /home/ubuntu/devops-app/nginx/nginx.conf /etc/nginx/sites-available/blog
-sudo ln -s /etc/nginx/sites-available/blog /etc/nginx/sites-enabled/
-#sudo ln -s /etc/nginx/sites-available/blog /etc/nginx/sites-enabled
-#sudo nginx -t
-sudo gpasswd -a www-data ubuntu
-sudo systemctl restart nginx
+ cp /home/ubuntu/devops-app/nginx/nginx.conf /etc/nginx/sites-available/blog
+ ln -s /etc/nginx/sites-available/blog /etc/nginx/sites-enabled/
+# ln -s /etc/nginx/sites-available/blog /etc/nginx/sites-enabled
+# nginx -t
+ gpasswd -a www-data ubuntu
+ systemctl restart nginx
 
