@@ -1,6 +1,7 @@
 asgiref==3.7.2
 astroid==3.0.1
 dill==0.3.7
+dj-static==0.0.6
 Django==4.2.5
 django-tables2==2.7.0
 django-widget-tweaks==1.5.0
@@ -17,5 +18,6 @@ platformdirs==4.1.0
 pylint==3.0.2
 pytz==2023.3.post1
 sqlparse==0.4.4
+static3==0.7.0
 tomlkit==0.12.3
 typing_extensions==4.8.0
