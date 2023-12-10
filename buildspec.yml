@@ -20,6 +20,7 @@ phases:
     commands:
       - cd todo_app
       - pylint *.py
+      - cd ../
       - cd todo_project
       - pylint *.py
       - echo Building the application
