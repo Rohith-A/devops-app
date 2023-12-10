@@ -2,7 +2,7 @@
 
 sed -i 's/\[]/\["16.171.234.24"]/' /home/ubuntu/devops-app/todo_project/settings.py
 
-sudo chmod -r 777 /
+sudo chmod -R 777 /home/ubuntu/devops-app/
 
 python manage.py migrate 
 python manage.py makemigrations     
