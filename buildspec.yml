@@ -15,6 +15,11 @@ phases:
   pre_build:
     commands:
       - pip3 install -r requirements.txt
+      - cd ../../
+      - cd /home/ubuntu/devops-app/todo_project
+      - pylint *.py
+      - cd /home/ubuntu/devops-app/todo_app
+      - pylint *.py
       - echo Prebuild ops
   build:
     commands:
