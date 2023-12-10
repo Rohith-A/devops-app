@@ -14,13 +14,13 @@ version: 0.1
 phases:
   pre_build:
     commands:
+      - pip3 install -r requirements.txt
       - echo Prebuild ops
       - cd todo_app
       - pylint *
       - cd ..
       - cd todo_project
       - pylint *
-      - pip3 install -r requirements.txt
   build:
     commands:
       - echo Building the application
