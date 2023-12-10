@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-apt install -y python3-pip
-apt install -y nginx
-apt install -y virtualenv
+sudo apt install -y python3-pip
+sudo apt install -y nginx
+sudo apt install -y virtualenv
