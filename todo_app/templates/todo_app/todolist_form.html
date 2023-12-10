@@ -1,0 +1,50 @@
+<!-- todo_list/todo_app/templates/todo_app/todolist_form.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<script type="text/JavaScript">
+
+    function validateForm()
+    {
+        const inputField = document.getElementById('toDoListForm');
+        inputField.children[1].children[1].value
+        inputField.children[2].children[1].value
+        debugger
+        console.log(inputField)
+        // Validate URL
+      return false;
+    }
+    </script>
+<h3 style="
+margin-left: 30%
+">{{ title }}</h3>
+<div>
+    <div>
+        <form method="post" id="toDoListForm" onsubmit="validateForm();" on pattern="[A-Za-z]{3}" style="
+        margin-left: 30%
+    ">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input
+                value="Save"
+                style="
+    background-color: #257da9;
+    border: 1px solid #257da9;
+    padding: 7px;
+    font-size: 15px;
+"
+                type="submit">
+            <input
+                value="Cancel"
+                style="
+    background-color: #ff7171;
+    border: 1px solid #ff7171;
+    padding: 7px;
+    font-size: 15px;
+"
+                type="button"
+                onclick="location.href='{% url "index" %}';">
+        </form>
+    </div>
+</div>
+{% endblock %}

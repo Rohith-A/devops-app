@@ -1,0 +1,82 @@
+<!-- todo_list/todo_app/templates/todo_app/todo_list.html -->
+{% extends "base.html" %}
+{% block content %}
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      text-align: center;
+
+    }
+    
+    td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #257da9 !important;
+      font-weight: 700;
+      color: white;
+  }
+    
+  tr:nth-child(even) {
+      background-color: none;
+    }
+    h4 {
+      text-align: center
+    }
+    </style>
+    <div>
+        <div >
+            <h5 style="text-align: center">{{ todo_list.title | upper }}</h5>
+        </div>
+        <div style="height: 500px; overflow: scroll; margin-bottom: 10%">
+            <table>
+            <tr>
+              <th>Action Item</th>
+              <th>Description</th>
+            
+            </tr>
+            {% for todo in object_list %}
+            <tr>
+              <td role="button"
+              onclick="location.href=
+              '{% url "item-update" todo_list.id todo.id %}'">{{ todo.title }}</td>
+              <td role="button">{{ todo.due_date | date:"l, F j"}}</td>
+          
+            </tr>
+            {% empty %}
+            <p>There are no action items in this list.</p>
+            {% endfor %}
+          </table>
+        </div>
+        <p>
+            <input
+                value="Add New"
+                type="button"
+                style="
+    background-color: #257da9;
+    border: 1px solid #257da9;
+    padding: 7px;
+    font-size: 15px;
+"
+                onclick="location.href='{% url "item-add" todo_list.id %}'"
+            />
+            <input
+                value="Delete"
+                type="button"
+                style="
+    background-color: #ff7171;
+    border: 1px solid #ff7171;
+    padding: 7px;
+    font-size: 15px;
+"
+                onclick="location.href=
+                '{% url "list-delete" todo_list.id %}'" />
+        </p>
+    </div>
+
+{% endblock %}

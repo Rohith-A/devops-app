@@ -1,0 +1,86 @@
+<!-- todo_list/todo_app/templates/todo_app/todoitem_form.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      background: none;
+      text-align: center;
+      height: 500px;
+      overflow-y: scroll;
+    }
+    
+    td {
+      {% comment %} border: 1px solid #dddddd; {% endcomment %}
+      text-align: left;
+      border: none;
+      background: none
+      padding: 8px;
+    }
+
+    th {
+      background: none !important;
+      font-weight: 700;
+      border: none;
+      {% comment %} color: white; {% endcomment %}
+  }
+  td:nth-child(even) {
+    {% comment %} border: 1px solid #dddddd; {% endcomment %}
+    background: none !important;
+
+    text-align: left;
+    border: none;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+      background: none !important;
+      border: none
+    }
+    h4 {
+      text-align: center
+    }
+    </style>
+<h3>{{ title }}</h3>
+<form method="post" pattern="[A-Za-z]{3}">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input
+    style="
+    background-color: #257da9;
+    border: 1px solid #257da9;
+    padding: 7px;
+    font-size: 15px;
+"
+        value="Submit"
+        type="submit">
+    <input
+        value="Cancel"
+        type="button"
+        style="
+    background-color: #ff7171;
+    border: 1px solid #ff7171;
+    padding: 7px;
+    font-size: 15px;
+"
+        onclick="location.href='{% url "list" todo_list.id %}'">
+        {% if object %}
+        <input
+            value="Delete this item"
+            type="button"
+            style="
+    background-color: #ff7171;
+    border: 1px solid #ff7171;
+    padding: 7px;
+    font-size: 15px;
+"
+            onclick="location.href=
+            '{% url "item-delete" todo_list.id object.id %}'">
+    {% endif %}
+</form>
+{% endblock %}

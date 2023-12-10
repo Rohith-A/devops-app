@@ -1,0 +1,33 @@
+<!-- todo_list/todo_app/templates/todo_app/todolist_confirm_delete.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<!--todolist_confirm_delete.html-->
+<h3>Delete List</h3>
+
+<p>Are you sure you want to delete the list <i>{{ object.title }}</i>?</p>
+
+<form method="POST" >
+    {% csrf_token %}
+    <input
+    style="
+    background-color: #257da9;
+    border: 1px solid #257da9;
+    padding: 7px;
+    font-size: 15px;
+"
+        value="Yes, delete."
+        type="submit">
+        <input
+    value="Cancel"
+    type="button"
+    style="
+    background-color: #ff7171;
+    border: 1px solid #ff7171;
+    padding: 7px;
+    font-size: 15px;
+"
+    onclick="location.href='{% url "index" %}';">
+</form>
+
+{% endblock %}
