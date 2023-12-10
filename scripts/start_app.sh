@@ -3,12 +3,12 @@
 sed -i 's/\[]/\["54.144.250.113"]/' /home/ubuntu/devops-app/blog/settings.py
 
 # sudo chmod -R u+w db.sqlite3
-chmod -R 777 /
+
 python manage.py migrate 
 python manage.py makemigrations     
 python manage.py collectstatic
-service gunicorn restart
-service nginx restart
+sudo service gunicorn restart
+sudo service nginx restart
 #sudo tail -f /var/log/nginx/error.log
 #sudo systemctl reload nginx
 #sudo tail -f /var/log/nginx/error.log

@@ -1,5 +1,5 @@
 #!/usr/bin/bash
 
 echo "Pull Finished"
-systemctl daemon-reload
-systemctl restart nginx
+sudo systemctl daemon-reload
+sudo systemctl restart nginx
