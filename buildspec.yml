@@ -19,9 +19,8 @@ phases:
   build:
     commands:
       - ls -ltr
-      - cd todo_project   
+      - sudo cd todo_project   
       - pylint *.py
-
       - echo Building the application
   post_build:
     commands:
