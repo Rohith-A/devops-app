@@ -21,6 +21,7 @@ phases:
       - ls -ltr
       - cd todo_project/
       - pylint *.py
+      - pytest
       - echo Building the application
   post_build:
     commands:
