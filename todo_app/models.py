@@ -23,6 +23,8 @@ class ToDoList(models.Model):
 class ToDoItem(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
+    status = models.CharField(max_length=20, null=True, blank=False)
+    assignee = models.CharField(max_length=50, null=True, blank=False)
     created_date = models.DateTimeField(auto_now_add=True)
     due_date = models.DateTimeField(default=one_week_hence)
     todo_list = models.ForeignKey(ToDoList, on_delete=models.CASCADE)

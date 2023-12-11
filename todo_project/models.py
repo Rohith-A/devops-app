@@ -1,4 +1,12 @@
-# todo_list/todo_app/models.py
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=missing-function-docstring
+# pylint: disable=invalid-name
+# pylint: disable=trailing-newlines
+# pylint: disable=trailing-whitespace
+# pylint: disable=missing-final-newline
+
+import sys  # [missing-module-docstring]
 from django.utils import timezone
 
 from django.db import models
@@ -15,7 +23,6 @@ class ToDoList(models.Model):
 
     def __str__(self):
         return self.title
-    
     @property
     def is_post_production_completed(self):
         return self.title
