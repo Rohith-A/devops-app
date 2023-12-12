@@ -18,10 +18,10 @@ phases:
       - ls
   build:
     commands:
-      # - ls -ltr
-      # - cd todo_project/
-      # - pylint *.py
-      # - pytest
+      - ls -ltr
+      - cd todo_project/
+      - pylint *.py
+      - pytest
       - echo Building the application
   post_build:
     commands:
