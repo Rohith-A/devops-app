@@ -7,7 +7,7 @@
   Hi {{ user.username }}!
 {% else %}
 <div style="margin-top: 20%">
-  <p>You are not logged in</p>
+  <p>You are not logged in. Please login to access the application</p>
   <a href="{% url 'login' %}">Log In</a>
 </div>
 {% endif %}
