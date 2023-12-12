@@ -16,12 +16,13 @@
     }
     </script>
 <h3 style="
-margin-left: 30%
+margin-left: 20%
 ">{{ title }}</h3>
 <div>
     <div>
         <form method="post" id="toDoListForm" onsubmit="validateForm();" on pattern="[A-Za-z]{3}" style="
-        margin-left: 30%
+        margin-left: 20%;
+        margin-bottom: 5%
     ">
             {% csrf_token %}
             {{ form.as_p }}

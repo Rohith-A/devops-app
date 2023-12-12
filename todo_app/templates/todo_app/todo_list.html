@@ -37,14 +37,17 @@
             <table>
             <tr>
               <th>Action Item</th>
-              <th>Description</th>
-            
+              <th>Status</th>
+              <th>Assignee</th>
+              <th>Due Date</th>
             </tr>
             {% for todo in object_list %}
             <tr>
               <td role="button"
               onclick="location.href=
               '{% url "item-update" todo_list.id todo.id %}'">{{ todo.title }}</td>
+              <td>{{ todo.status}}</td> 
+              <td>{{ todo.assignee}}</td> 
               <td role="button">{{ todo.due_date | date:"l, F j"}}</td>
           
             </tr>

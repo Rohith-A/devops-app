@@ -1,4 +1,13 @@
-# todo_list/todo_app/models.py
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=missing-function-docstring
+# pylint: disable=invalid-name
+# pylint: disable=trailing-newlines
+# pylint: disable=trailing-whitespace
+# pylint: disable=missing-final-newline
+# pylint: disable=no-member
+# pylint: disable=too-few-public-methods
+
 from django.utils import timezone
 
 from django.db import models
@@ -14,8 +23,7 @@ class ToDoList(models.Model):
         return reverse("list", args=[self.id])
 
     def __str__(self):
-        return self.title
-    
+        return self.title + ''
     @property
     def is_post_production_completed(self):
         return self.title
@@ -23,8 +31,6 @@ class ToDoList(models.Model):
 class ToDoItem(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
-    status = models.CharField(max_length=20, null=True, blank=False)
-    assignee = models.CharField(max_length=50, null=True, blank=False)
     created_date = models.DateTimeField(auto_now_add=True)
     due_date = models.DateTimeField(default=one_week_hence)
     todo_list = models.ForeignKey(ToDoList, on_delete=models.CASCADE)
